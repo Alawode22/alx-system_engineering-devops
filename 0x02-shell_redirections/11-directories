@@ -1,2 +1,2 @@
-#!/bin/bash
-ls -al -R |wc -l
+#i/bin/bash
+find . -type d ! -path . |wc -l
