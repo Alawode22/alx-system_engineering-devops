@@ -7,4 +7,3 @@ file { '/tmp/school':
   owner   => 'www-data',
   group   => 'wiww-data',
 }
-
