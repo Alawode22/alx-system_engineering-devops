@@ -1,0 +1,4 @@
+# SSH Client Configuration
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
