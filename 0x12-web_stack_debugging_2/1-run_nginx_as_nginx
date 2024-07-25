@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
+
+# Stop any running nginx processes
+pkill nginx
+
 # Update nginx configuration to listen on port 8080
-sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+sed -i 's/listen 80 default_server;/listen 8080 default_server;/g' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:8080 default_server;/g' /etc/nginx/sites-available/default
 
 # Ensure nginx is running as the nginx user
 sed -i 's/user www-data;/user nginx;/g' /etc/nginx/nginx.conf
