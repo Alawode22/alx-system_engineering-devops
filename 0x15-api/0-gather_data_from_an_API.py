@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # Fetch user information
     user = requests.get(url + "users/{}".format(employee_id)).json()
-    
+
     # Fetch todos for the user
     todos = requests.get(url + "todos", params={"userId": employee_id}).json()
 
