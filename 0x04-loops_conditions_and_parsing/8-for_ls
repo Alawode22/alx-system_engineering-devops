@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #prints a modified result of ls
 
-for file in $(ls); do
+files=$(ls)
+for file in $files; do
 	echo "${file#*-}"
 done
