@@ -10,7 +10,8 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-    Function to make the query to get the number of subscribers for a subreddit.
+    Function to make the query to get the
+    number of subscribers for a subreddit.
     """
     url = f'https://www.reddit.com/r/{subreddit}/about.json'
     headers = {
