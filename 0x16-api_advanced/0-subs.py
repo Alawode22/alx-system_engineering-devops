@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """
-Program to return the number of subscribers on a subreddit b queryinhg the reddit API, if not found return 0
+Program to return the number of subscribers on a subreddit
+by queryinhg the reddit API
+if not found return 0
 """
 import requests
+
 
 def number_of_subscribers(subreddit):
     """
