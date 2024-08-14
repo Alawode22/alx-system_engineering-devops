@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 Program to return the number of subscribers on a subreddit
-by queryinhg the reddit API
-if not found return 0
+by querying the Reddit API.
+If not found, return 0.
 """
 
 import requests
@@ -10,15 +10,15 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-    Function that queries the Reddit API
-    - If not a valid subreddit, return 0.
+    Function to make the query to get the number of subscribers for a subreddit.
     """
-    req = requests.get(
-        "https://www.reddit.com/r/{}/about.json".format(subreddit),
-        headers={"User-Agent": "Custom"},
-    )
-
-    if req.status_code == 200:
-        return req.json().get("data").get("subscribers")
+    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    headers = {
+        'User-Agent': 'linux:my-app:v1.0.0 (by /u/your_username)'
+    }
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code == 200:
+        data = response.json()
+        return data['data']['subscribers']
     else:
         return 0
