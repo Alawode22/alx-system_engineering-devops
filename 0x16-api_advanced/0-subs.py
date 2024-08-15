@@ -1,22 +1,16 @@
 #!/usr/bin/python3
-"""
-Program to return 'OK' if a subreddit exists or '0' if it doesn't.
-"""
-
+"""Function to query subscribers on a given Reddit subreddit."""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    Function to check if a subreddit exists.
-    Returns 'OK' if the subreddit exists, otherwise returns '0'.
-    """
-    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
-        'User-Agent': 'MyRedditAPI/0.1 (by YourUsername)'
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
     response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 200:
-        return "OK"
-    else:
-        return "0"
+    if response.status_code == 404:
+        return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
