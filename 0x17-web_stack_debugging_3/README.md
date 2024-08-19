@@ -1,0 +1,1 @@
+This project fixes a 500 Internal Server Error returned by Apache using strace to diagnose the issue. Once identified, the fix is automated with Puppet. The provided Puppet manifest ensures correct file permissions or configuration, allowing the site to serve content properly and return a 200 OK status.
